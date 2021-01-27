@@ -1,0 +1,525 @@
+<template>
+	<view class="content">
+		<view style="display: flex;flex-direction: row;width: 100%;height: 60upx;background: #faefe2;margin-bottom: 2upx;padding: 0 30upx;">
+			<view style="height:60upx;align-items: center;justify-content: center;">
+				<image src="@/static/mine-ico/tip.png" style="width: 30upx;height: 30upx;"></image>
+			</view>
+			<!-- 文字滚动 -->
+			<uni-notice-bar  style="width: 100%;" scrollable="true" single="true" text="涉及汇款、转账等资金交易时，请务必慎重，注意核实对方身份，电话确认，谨防诈骗"></uni-notice-bar>
+		</view>	
+		<view style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding: 30upx 30upx 0">
+			<view @click="placeDetails(reciveData)" style="width: 100%;">
+				<view style="width: 25%;">
+					<image :src="decodeURIComponent(reciveData.fosteragePlaceImage)" mode="aspectFill" style="width: 130upx;height: 130upx;"></image>
+				</view>
+				<view style="width: 65%;flex-direction: column;">
+					<view style="width: 100%;height: 65upx;align-items: center;">
+						<text style="font-size: 14px;font-weight: bold;display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;">
+							{{reciveData.fosteragePlaceName}}
+						</text>
+						<text style="color: #ffbf59;margin-left: 20upx;">{{reciveData.fosteragePlaceScore}}</text>
+					</view>
+					<view style="width: 100%;height: 65upx;align-items: center;">
+						<view style="width: 100%;line-height:50upx;margin-top: 12upx;">
+							<text style="margin-right: 20upx;">{{reciveData.fosteragePlaceArea}}m²</text>|
+							<text style="margin: 0 20upx;">{{reciveData.fosteragePlaceRoom}}</text>|
+							<text style="margin-left: 20upx;">{{reciveData.fosteragePlaceFloor}}楼</text>
+						</view>
+					</view>
+				</view>
+				<view style="width: 10%;align-items: center;">
+					<image v-if="reciveData.fosterContact" @click="telphone(reciveData.fosterContact)"  mode="aspectFill" style="width: 50upx;height: 50upx;" src="@/static/service/tel.png"></image>
+				</view>
+			</view>
+			
+			<view style="width: 100%;height: 60upx;line-height:60upx;align-items: center;margin: 12upx 0;">
+				<image src="@/static/actionImg/Location_ico.png" style="width: 28upx;height: 28upx;margin-right: 10upx;"></image>
+				<text style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;">
+					{{reciveData.fosteragePlaceAddress}}
+				</text>
+			</view>
+		</view>
+		<view style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:0 30upx;margin-top: 8upx;">
+			<view style="width: 100%;height: 50upx;align-items: center;margin-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="color: #999;">养宠日期：</text>
+				</view>
+				<view style="width: 75%;align-items: center;">
+					<text>{{reciveData.fosterageOrderStartDate}}</text>
+					<text style="margin: 0 10upx;">至</text> 
+					<text>{{reciveData.fosterageOrderEndDate}}</text>
+					<text style="margin: 0 20upx;">|</text>
+					共<text>{{reciveData.totalDays}}</text>天
+				</view>
+			</view>
+			<view style="width: 100%;padding-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="color: #999;">寄养宠物：</text>
+				</view>
+				<view style="width: 75%;flex-direction: column;">
+					<view v-for="(item,index) in reciveData.petList" :key="index" style="height:50upx;line-height: 50upx;">
+						<text style="margin-right: 30upx;">{{item.petNickname}}</text>
+						<text style="margin-right: 30upx;">{{item.breedName}}</text>
+						<text>{{item.petAge}}</text>
+					</view>
+				</view>
+			</view>
+			<view style="width: 100%;height: 50upx;align-items: center;margin-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="color: #999;">宠物数量：</text>
+				</view>
+				<view style="width: 75%;align-items: center;">
+					<text>{{reciveData.petNum}}</text>
+				</view>
+			</view>
+			<view style="width: 100%;height: 50upx;align-items: center;margin-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="color: #999;">状&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp态：</text>
+				</view>
+				<view style="width: 75%;align-items: center;" >
+					<text style="color:#ffbf59;" :class="{greenStyle:reciveData.fosterageOrderStatus >= 5}">{{statusArr[reciveData.fosterageOrderStatus]}}</text>
+				</view>
+			</view>
+			<view style="width: 100%;margin: 12upx 0;">
+				<view style="width: 25%;">
+					<text style="color: #999;">备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注：</text>
+				</view>
+				<view style="width: 75%;align-items: center;">
+					<text>{{reciveData.fosterageOrderRemark}}</text>
+				</view>
+			</view>
+		</view>
+		
+		<view style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:0 30upx;margin-top: 8upx;">
+			<view style="width: 100%;height: 50upx;align-items: center;margin-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="font-weight: bold;">订单信息</text>
+				</view>
+			</view>
+			<view style="width: 100%;height: 50upx;align-items: center;margin-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="color: #999;">订单编号：</text>
+				</view>
+				<view style="width: 75%;align-items: center;">
+					<text>{{reciveData.fosterageOrderNo}}</text>
+				</view>
+			</view>
+			<view style="width: 100%;height: 50upx;align-items: center;margin-top: 12upx;">
+				<view style="width: 25%;">
+					<text style="color: #999;">创建时间：</text>
+				</view>
+				<view style="width: 75%;align-items: center;">
+					<text>{{reciveData.createTime}}</text>
+				</view>
+			</view>
+			<view style="width: 100%;height: 50upx;align-items: center;margin: 12upx 0;">
+				<view style="width: 25%;">
+					<text style="color: #999;">完成时间：</text>
+				</view>
+				<view style="width: 75%;align-items: center;">
+					<text>{{reciveData.fosterageOrderStatus >4?reciveData.updateTime:'--'}}</text>
+				</view>
+			</view>
+		</view>
+		
+		<!-- 订单取消  显示理由 -->
+		<view v-if="reciveData.fosterageOrderStatus == 6" style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:20upx 30upx;margin-top: 10upx;margin-bottom: 8upx;">
+			<view style="width: 100%;height: 70upx;align-items: center;">
+				<view style="width: 70%;">
+					<text style="font-weight: bold;">取消理由</text>
+				</view>
+			</view>
+			<text style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;color: #888888;" >
+				{{reciveData.fosterageOrderCancelReason}}
+			</text>
+		</view>
+		
+		<!-- 取消  确认 -->
+		<view v-if="isShow && !cancelResonShow" style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:20upx 30upx;margin-top: 8upx;">
+			<view style="width: 100%;height: 100upx;align-items: center;justify-content: flex-end;">
+				<view @click="cancelOrder" style="width: 200upx;height:70upx;background-color: #ffbf59;color: #FFFFFF;border-radius: 10upx;align-items: center;justify-content: center;">
+					<text>取消订单</text>
+				</view>
+			</view>
+		</view>
+		
+		<!-- 取消理由 -->
+		<view v-if="cancelResonShow" style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:20upx 30upx;margin-top: 8upx;margin-bottom: 8upx;">
+			<view style="width: 100%;height: 70upx;align-items: center;">
+				<view style="width: 70%;">
+					<text style="font-weight: bold;">取消理由：</text>
+				</view>
+				<view style="width: 30%;align-items: center;justify-content: flex-end;">
+					<text @click="reson_cancel" style="margin-right: 30upx;">取消</text>
+					<text @click="reson_cancelOrderID" style="color: #f76d45;">确定</text>
+				</view>
+			</view>
+			<view style="width: 100%;flex-direction: column;">
+				<view v-for="(item,index) in resonArr" :key="index"
+					@click="resonClick(item.id)"
+					style="width: 100%;height: 80upx;line-height: 80upx;align-items: center;border-bottom: 1px solid #e2e2e2;">
+					<view style="width: 10%;justify-content: center;">
+						<text style="font-weight: bold;">{{item.id}}.</text>
+					</view>	
+					<view style="width: 80%;">
+						<text>{{item.text}}</text>
+					</view>
+					<view v-if="item.status" style="width: 10%;justify-content: flex-end;">
+						<image src="@/static/mine-ico/recon_ico.png" mode="aspectFill" style="width: 50upx;height: 50upx;"></image>
+					</view>
+				</view>
+			</view>
+			<!-- <textarea  @input="uniPopupInput_onKeyInput" placeholder="请输入理由" :value="reson_text" style="width: 100%;height: 140upx;font-size:12px;color: #888888;line-height: 50upx;"/> -->
+		</view>
+		
+		<!-- 去评价 Status == 4  -->
+		<view v-if="commentBtn_isShow" style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:20upx 30upx;margin-top: 8upx;">
+			<view style="width: 100%;height: 100upx;align-items: center;justify-content: flex-end;">
+				<view @click="goCommentPage" style="width: 200upx;height:70upx;border: 1px solid #888888;border-radius: 50upx;align-items: center;justify-content: center;">
+					<text>去评价</text>
+				</view>
+			</view>
+		</view>
+		
+		<!-- 评价 Status == 5  -->
+		<view v-if="reciveData.fosterageOrderStatus == 5" style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding:20upx 30upx;margin-top:8upx;">
+			<view style="width: 100%;height: 60upx;align-items: center;">
+				<text style="font-weight: bold;">评价</text>
+			</view>
+			<view style="flex-direction: row;width: 100%;height: 80upx;margin: 20upx 0;">
+				<view style="width: 60%;height:100%;">
+					<image :src="decodeURIComponent(commentData.userAvatar)" mode="aspectFill"  style="width: 80upx;height: 80upx;border-radius: 40upx;"></image>
+					<view style="flex-direction: column; margin-left: 10upx;">
+						<text style="line-height: 40upx;" >{{commentData.userNickname}}</text>
+						<text style="line-height: 40upx;color: #b7b7b7;">{{commentData.commentFriendlyDate}}</text>
+					</view>
+				</view>
+				<view style="width:40%;height: 100%;justify-content: flex-end;align-items: center;">
+					 <view style="width: 60%;align-items: center;justify-content: flex-end;margin-right: 30upx;">
+						<view class="example-body">
+							<uni-rate :value="commentData.evaluationScore" disabled="false" />
+						</view>
+					 </view>
+				</view>
+			</view>
+			<text @click="gotoHuifu_page(item)" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;padding: 10upx 0;border-bottom: 1px solid #F9F9F9;">
+				{{commentData.evaluationContent}}
+			</text>
+		</view>
+		
+		<!-- 已经回复 显示回复 -->
+		<view v-if="replyShow" style="width: 100%;flex-direction: column;background-color: #FFFFFF;padding: 0 30upx 20upx 80upx;">
+			<view style="flex-direction: row;width: 100%;height: 80upx;margin: 20upx 0;">
+				<image :src="decodeURIComponent(replyData.userAvatar)" mode="aspectFill" style="width: 80upx;height: 80upx;border-radius: 40upx;"></image>
+				<view style="flex-direction: column; margin-left: 10upx;">
+					<text style="line-height: 40upx;" >{{replyData.userNickname}}</text>
+					<text style="line-height: 40upx;color: #b7b7b7;">{{replyData.replyFriendlyDate}}</text>
+				</view>
+			</view>
+			<text @click="gotoHuifu_page(item)" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;padding: 10upx 0;border-bottom: 1px solid #b7b7b7;">
+				{{replyData.fosterageEvaluationReplyContent}}
+			</text>
+		</view>
+		
+	</view>
+</template>
+
+<script>
+	import uniNoticeBar from '@/components/notice/uni-notice-bar/uni-notice-bar.vue'
+	import {friendlyDate} from '@/utils/timeTransfrom.js';
+	import uniRate from '@/components/rate/uni-rate/uni-rate.vue'
+	import uniSection from '@/components/rate/uni-section/uni-section.vue'
+	export default {
+		components: {
+			uniRate,
+			uniSection,
+			uniNoticeBar
+		},
+		data() {
+			return {
+				avatarUrl_default:"../../../static/header_default.png",
+				statusArr:["待确认","待送达","","待完成","待评价","已评价","已关闭"],
+				isShow:false,//协议/取消/确认  控制显示
+				cancelResonShow:false,//取消理由弹窗
+				commentBtn_isShow:false,//评价按钮显示
+				replyBtn_isShow:false,//回复按钮显示
+				replyShow:false,//回复显示控制
+				replyData:{},
+				commentData:{},
+				reciveData:{},
+				OrderId:'',
+				reson_text:'',
+				reply_text:'',
+				
+				resonArr:[
+					{id:'1',text:'信息填写错误',status:false},
+					{id:'2',text:'重复下单/误下单',status:false},
+					{id:'3',text:'卖家不能按时提供服务',status:false},
+					{id:'4',text:'其他原因',status:false}
+				],
+			}
+		},
+		async onLoad(e) {
+			this.OrderId = e.id
+			//获取 订单详情
+			this.getOrderIdDetails()
+		},
+		onShow() {
+			//获取 订单详情
+			this.getOrderIdDetails()
+		},
+		methods: {
+			//获取 订单详情
+			getOrderIdDetails(type){
+				let param={
+					"fosterageOrderId":this.OrderId
+				}
+				let str = '/portal/v1/fosterage_order/get/' + this.OrderId
+				let opts={ url:str, method:'POST' }
+				this.http.httpTokenRequest(opts,param).then(
+					res => {
+						if(res.data.code == 200 ){
+							this.reciveData = res.data.data
+							
+							// this.reciveData.fosterageOrderStatus = 4 //测试用
+							
+							//待完成(- 底部无按钮)
+							if(this.reciveData.fosterageOrderStatus == 3 ||
+								this.reciveData.fosterageOrderStatus == 4||
+								this.reciveData.fosterageOrderStatus == 5||
+								this.reciveData.fosterageOrderStatus == 6
+							){
+								this.isShow = false
+							}else{
+								this.isShow = true
+							}
+							//待评价(- 底部显示评价按钮)
+							if(this.reciveData.fosterageOrderStatus == 4 ){
+								this.commentBtn_isShow = true
+							}
+							//已评价
+							if(this.reciveData.fosterageOrderStatus == 5){
+								//根据订单ID获取评价详情
+								this.seachOrderID_Comment()
+							}
+							
+							this.reciveData.petNum = this.reciveData.petList.length
+							for(let i=0;i<this.reciveData.petList.length;i++){
+								this.reciveData.petList[i].petAge = this.getDaysBetween(this.reciveData.petList[i].petBirthday)
+							}
+							this.reciveData.fosterageOrderStartDate = this.reciveData.fosterageOrderStartDate.split(" ")[0]
+							this.reciveData.fosterageOrderEndDate = this.reciveData.fosterageOrderEndDate.split(" ")[0]
+							this.reciveData.totalDays =  this.dateSpace(this.reciveData.fosterageOrderStartDate,this.reciveData.fosterageOrderEndDate)
+							if(this.reciveData.fosteragePlaceScore > 0){
+								this.reciveData.fosteragePlaceScore = this.reciveData.fosteragePlaceScore + '分'
+							}else{
+								this.reciveData.fosteragePlaceScore = "暂无评分"
+							}
+						}else{
+							uni.showToast({
+							    title: res.data.msg,
+								icon: 'none',
+							    duration: 1000
+							});
+						}
+					}
+				)
+			},
+			cancelOrder(){
+				this.cancelResonShow = !this.cancelResonShow
+			},
+			
+			// uniPopupInput_onKeyInput: function(event) {
+			// 	this.reson_text = event.target.value
+			// },
+			reson_cancel(){
+				this.reson_text =''
+				this.cancelResonShow = !this.cancelResonShow
+				
+				for(var i=0;i<this.resonArr.length;i++){
+					this.resonArr[i].status = false
+				}
+			},
+			resonClick(id){
+				for(var i=0;i<this.resonArr.length;i++){
+					if(id == this.resonArr[i].id){
+						this.resonArr[i].status = true
+						this.reson_text = this.resonArr[i].text
+					}else{
+						this.resonArr[i].status = false
+					}
+				}
+			},
+			reson_cancelOrderID(){
+				if(this.reson_text == ""){
+					uni.showToast({
+						icon: "none",
+						title: "请选择取消原因"
+					})
+					return;
+				}
+				//取消订单
+				let param={ 
+					"fosterageOrderCancelReason": this.reson_text,
+					"fosterageOrderId": this.OrderId
+				}
+				let opts={ url:'/portal/v1/fosterage_order/cancel', method:'POST' }
+				//发送请求
+				this.http.httpTokenRequest(opts,param).then(
+					res => {
+						// console.log(res.data);
+						if(res.data.code == 200){
+							this.reciveData.fosterageOrderCancelReason = this.reson_text
+							this.reciveData.fosterageOrderStatus = 6
+							this.cancelResonShow = false
+							this.isShow = false
+						}else{
+							uni.showToast({
+							    title: res.data.msg,
+								icon: 'none',
+							    duration: 1000
+							});			
+						}
+					}
+				)
+			},
+			// 去评论  status==4
+			goCommentPage(){
+				uni.navigateTo({
+					url:'add-comment?id=' +this.reciveData.fosterageOrderId  + '&type=0'
+				})
+			},
+			
+			//根据订单ID获取评价详情    status==5
+			seachOrderID_Comment(){
+				let param={ 
+					"evaluationOrderId": this.OrderId,
+					"evaluationType": 0
+				}
+				let str = '/portal/v1/evaluation/get/orderId'
+				let opts={ url:str, method:'POST' }
+				//发送请求
+				this.http.httpTokenRequest(opts,param).then(
+					res => {
+						if(res.data.code == 200){
+							this.commentData = res.data.data
+							this.commentData.commentFriendlyDate = friendlyDate(new Date(this.commentData.createTime.replace(/\-/g,'/')).getTime(),this.commentData.createTime)
+							if(this.commentData.replyCount == 1){//有回复
+								//根据回复ID获取回复详情
+								this.seachOrderID_Reply()
+							}else{
+								this.replyBtn_isShow = true
+							}
+						}else{
+							uni.showToast({
+							    title: res.data.msg,
+								icon: 'none',
+							    duration: 1000
+							});
+						}
+					}
+				)
+			},
+			//根据回复ID获取回复详情
+			seachOrderID_Reply(){
+				let param={ "evaluationReplyId": this.commentData.evaluationReplyId}
+				let str = '/portal/v1/evaluation_reply/get/' + this.commentData.evaluationReplyId
+				let opts={ url:str, method:'POST' }
+				//发送请求
+				this.http.httpTokenRequest(opts,param).then(
+					res => {
+						if(res.data.code == 200){
+							this.replyShow = !this.replyShow
+							this.replyData = res.data.data
+							this.replyData.replyFriendlyDate = friendlyDate(new Date(this.replyData.createTime.replace(/\-/g,'/')).getTime(),this.replyData.createTime)
+						}else{
+							uni.showToast({
+							    title: res.data.msg,
+								icon: 'none',
+							    duration: 1000
+							});		
+						}
+					}
+				)
+			},
+			telphone(number){
+				uni.makePhoneCall({
+					phoneNumber:number,
+					success() {
+						console.log("success")
+					},
+					fail() {
+						console.log("fail")
+					}
+				})
+			},
+			chat(){
+				uni.showToast({
+				    title: "前往App",
+					icon: 'none',
+				    duration: 1000
+				})
+			},
+			dateSpace(sDate1, sDate2) {
+				//sDate1和sDate2是2006-12-18格式 得出两日期之间的天数
+				var dateSpan, tempDate, iDays;
+				sDate1 = Date.parse(sDate1);
+				sDate2 = Date.parse(sDate2);
+				dateSpan = sDate2 - sDate1;
+				dateSpan = Math.abs(dateSpan);
+				iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
+				return iDays;
+			},
+			placeDetails(item){
+				uni.navigateTo({
+					url:this.navigatorUrl.fosterageDetailsPages + '?id=' + item.fosterageOrderPlaceId
+				})
+			},
+			getDaysBetween(dateString1){
+			   var  startDate = Date.parse(dateString1);
+			   var myDate = new Date();
+			   var  endDate = Date.parse(myDate);
+			   var days=(endDate - startDate)/(1*24*60*60*1000);
+			   var y = days/365
+			   
+			   var str = ''
+			   if(!y){
+				   str = ''
+			   }else{
+					if(y<1){
+						str = '1岁' 
+					}else{
+						str = parseInt(y) + '岁' 
+					}
+			   }
+			   return  str;
+			},
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	page {
+	    display: flex;
+	    min-height: 100%;
+	    background-color: #f9f9f9;
+	}
+	template {
+	    display: flex;
+	    flex: 1;
+	}
+	view {
+	    display: flex;
+	}
+	/* 个人中心 */
+	.content {
+		width: 100%;
+		flex-direction: column;
+		color: #5c5f66;
+		/* font-size: 14px; */
+		margin-top: 2upx;
+	}
+	.greenStyle{
+		color: #b7b7b7 !important;
+	}
+</style>

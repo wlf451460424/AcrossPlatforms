@@ -1,0 +1,1442 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages 
+		{
+			"path" : "pages/tab-index/index",
+			"style" : {
+				"navigationBarTitleText" : "首页",
+				"app-plus": {
+					"navigationBarTextStyle": "white",
+					"bounce": "none",
+					"titleNView": {
+						"searchInput": {
+							"backgroundColor": "rgba(255, 255, 255)",
+							"borderRadius": "30upx",
+							"placeholder": "动态/问答/笔记/文章/小组/用户",
+							"placeholderColor": "#b7b7b7",
+							"disabled": true,
+							"align":"left"
+						}
+					}
+				}
+			}
+		},
+        {
+            "path" : "pages/tab-discover/index",
+            "style" : {
+            	"navigationBarTitleText" : "发现",
+            	"app-plus": {
+            		"navigationBarTextStyle": "white",
+            		"bounce": "none",
+					"titleNView": {
+						"searchInput": {
+							"backgroundColor": "rgba(255, 255, 255)",
+							"borderRadius": "30upx",
+							"placeholder": "动态/问答/笔记/文章/小组/用户",
+							"placeholderColor": "#b7b7b7",
+							"disabled": true,
+							"align":"left"
+						}
+					}
+            	}
+            }
+        },
+		// {
+		//     "path" : "pages/tab-service/index",
+		//     "style" : {
+		// 		"navigationBarTitleText" : "服务",
+		// 		"navigationBarTextStyle": "black",
+		// 		"app-plus": {
+		// 			"navigationBarTextStyle": "white",
+		// 			"bounce": "none"
+		// 		}
+		// 	}
+		// },
+		{
+		    "path" : "pages/tab-mine/index",
+		    "style" : {
+		    	"navigationBarTitleText" : "我的",
+				"navigationBarBackgroundColor": "#F9F9F9",
+				// "navigationBarTextStyle": "white",
+		    	"app-plus": {
+					"navigationBarTextStyle": "white",
+		    		"bounce": "none",
+					"titleNView": {
+						// "type": "transparent",
+						"buttons": [ //原生标题栏按钮配置
+							{
+								"type":"none",
+								"text":"\ue662",
+								"fontSrc": "/static/iconfont.ttf",
+								"float":"right",
+								"fontSize":"40upx"
+							}
+						]
+					}
+		    	}
+		    }
+		},
+		{
+		    "path" : "pages/tab-msg/index",
+		    "style" : {
+				"navigationBarTitleText" : "消息",
+				"app-plus": {
+					"navigationBarTextStyle": "white",
+					"bounce": "none"
+				}
+			}
+		},
+		{
+		    "path" : "pages/app",
+		    "style" : {
+				"navigationBarTitleText" : "客户端下载"
+			}
+		},
+		{
+		    "path" : "pages/notification",
+		    "style" : {
+				"navigationBarTitleText" : "公告详情"
+			}
+		},
+		{
+		    "path" : "pages/topics",
+		    "style" : {
+				"navigationBarTitleText" : "话题"
+			}
+		},
+		{
+		    "path" : "pages/topic",
+		    "style" : {
+				"navigationBarTitleText" : "话题"
+			}
+		},
+		{
+		    "path" : "pages/groups",
+		    "style" : {
+				"navigationBarTitleText" : "小组",
+				"app-plus": {
+					"navigationBarTextStyle": "white",
+					"bounce": "none",
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置
+							{
+								"type":"none",
+								"text":"\ue621",
+								"fontSrc": "/static/iconfont.ttf",
+								"float":"right",
+								"fontSize":"32upx"
+							}
+						]
+					}
+				}
+			}
+		},
+		{
+		    "path" : "pages/group",
+		    "style" : {
+				"navigationBarTitleText" : "小组"
+			}
+		},
+		{
+		    "path" : "pages/features",
+		    "style" : {
+				"navigationBarTitleText" : "专题"
+			}
+		},
+		{
+		    "path" : "pages/feature",
+		    "style" : {
+				"navigationBarTitleText" : "专题"
+			}
+		},
+		{
+		    "path" : "pages/selections",
+		    "style" : {
+				"navigationBarTitleText" : "精选"
+			}
+		},
+		{
+		    "path" : "pages/selection",
+		    "style" : {
+				"navigationBarTitleText" : "精选"
+			}
+		},
+		{
+		    "path" : "pages/message",
+		    "style" : {
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+		    "path" : "pages/component/plan-pic-details",
+		    "style" : {
+				"navigationBarTitleText" : "",
+				"navigationBarBackgroundColor": "#000000",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+		    "path" : "pages/web-page",
+		    "style" : {
+				"navigationBarTitleText" : "",
+				"app-plus":{
+					"titleNView":false
+				}
+			}
+		},
+		{
+		    "path" : "pages/rank",
+		    "style" : {
+				"navigationBarTitleText" : "甜宠榜单"
+			}
+		},
+		{
+		    "path" : "pages/tags",
+		    "style" : {
+				"navigationBarTitleText" : "预留"
+			}
+		},
+		{
+		    "path" : "pages/tag",
+		    "style" : {
+				"navigationBarTitleText" : "标签"
+			}
+		},
+		{
+		    "path" : "pages/channel",
+		    "style" : {
+				"navigationBarTitleText" : "频道"
+			}
+		}
+    ],
+	
+	"subPackages": [
+		{
+			"root": "pages/tag",
+			"pages": [
+				{
+				    "path" : "categories",
+				    "style" : {
+						"navigationBarTitleText" : "标签"
+					}
+				},
+				{
+				    "path" : "category",
+				    "style" : {
+						"navigationBarTitleText" : "标签"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/creator",
+			"pages": [
+				{
+				    "path" : "application",
+				    "style" : {
+						"navigationBarTitleText" : "甜宠创作者"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/pet",
+			"pages": [
+				{
+				    "path" : "rank",
+					"style" : {
+						"navigationBarTitleText" : "星宠",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"规则说明",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"28upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "pet-list",
+				    "style" : {
+						"navigationBarTitleText" : "星宠总榜"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/post",
+			"pages": [
+				{
+				    "path" : "articles",
+					"style" : {
+						"navigationBarTitleText" : "文章"
+					}
+				},
+				{
+				    "path" : "article",
+					"style" : {
+						"navigationBarTitleText" : "文章详情",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"index":"0",
+										"type":"none",
+										"text":"\ue61a",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"40upx",
+										"background": "rgba(0,0,0,0)"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "notes",
+					"style" : {
+						"navigationBarTitleText" : "笔记"
+					}
+				},
+				{
+				    "path" : "note",
+					"style" : {
+						"navigationBarTitleText" : "笔记详情",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"index":"0",
+										"type":"none",
+										"text":"\ue61a",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"40upx",
+										"background": "rgba(0,0,0,0)"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "tweets",
+				    "style" : {
+						"navigationBarTitleText" : "动态"
+					}
+				},
+				{
+				    "path" : "tweet",
+				    "style" : {
+						"navigationBarTitleText" : "动态详情",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"index":"0",
+										"type":"none",
+										"text":"\ue61a",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"40upx",
+										"background": "rgba(0,0,0,0)"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "qaes",
+				    "style" : {
+						"navigationBarTitleText" : "问答"
+					}
+				},
+				{
+				    "path" : "qa",
+				    "style" : {
+						"navigationBarTitleText" : "问答详情",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"index":"0",
+										"type":"none",
+										"text":"\ue61a",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"40upx",
+										"background": "rgba(0,0,0,0)"
+									}
+								]
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/group",
+			"pages": [
+				{
+				    "path" : "group-member",
+				    "style" : {
+						"navigationBarTitleText" : "成员"
+					}
+				},
+				{
+				    "path" : "group-search",
+				    "style" : {
+						"navigationBarTitleText" : "搜索",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"searchInput":{
+									"align":"left",
+									"placeholder": "搜索 小组",
+									"borderRadius":"80upx",
+									"backgroundColor": "#fff",
+									"autoFocus":true
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/user",
+			"pages": [
+				{
+				    "path" : "search",
+				    "style" : {
+						"navigationBarTitleText" : "搜索",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"searchInput":{
+									"align":"left",
+									"placeholder": "搜索 用户昵称/用户名",
+									"borderRadius":"80upx",
+									"backgroundColor": "#fff",
+									"autoFocus":true
+								}
+							}
+						}
+					}
+				},
+				{
+				    "path" : "rank",
+				    "style" : {
+						"navigationBarTitleText" : "达人",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"\ue621",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"32upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "user-list",
+				    "style" : {
+						"navigationBarTitleText" : "总榜"
+					}
+				},
+				{
+				    "path" : "profile",
+				    "style" : {
+				    	"navigationBarTitleText" : "个人主页",
+						"app-plus": {
+						    "titleNView": {
+						        "type": "transparent"
+						    }
+						}
+				    }
+				}
+			]
+		},
+		{
+			"root": "pages/service",
+			"pages": [
+				{
+				    "path" : "pair/index",
+				    "style" : {
+						"navigationBarTitleText" : "配对",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "pair",
+				    "style" : {
+						"navigationBarTitleText" : "配对详情",
+						"app-plus": {
+							"titleNView": {
+							    "type": "transparent",
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"\ue657",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"36upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "adopt/index",
+				    "style" : {
+						"navigationBarTitleText" : "领养",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "adopt",
+				    "style" : {
+						"navigationBarTitleText" : "领养详情",
+						"app-plus": {
+							"titleNView": {
+							    "type": "transparent",
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"\ue657",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"36upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "foster/index",
+				    "style" : {
+						"navigationBarTitleText" : "寄养",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "fosterage",
+				    "style" : {
+						"navigationBarTitleText" : "寄养详情",
+						"app-plus": {
+							"titleNView": {
+							    "type": "transparent",
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"\ue657",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"36upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "foster/foster-place-comment-list",
+				    "style" : {
+						"navigationBarTitleText" : "评论列表"
+					}
+				},
+				{
+				    "path" : "foster/foster-place-reply-list",
+				    "style" : {
+						"navigationBarTitleText" : "回复列表"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/discover",
+			"pages": [
+				{
+				    "path" : "search/index",
+				    "style" : {
+						"navigationBarTitleText" : "搜索",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"searchInput":{
+									"align":"left",
+									"placeholder": "文章/笔记/动态/问答/小组/用户",
+									// "placeholder": "搜索",
+									"borderRadius":"80upx",
+									"backgroundColor": "#fff",
+									"autoFocus":true
+								}
+							}
+						}
+					}
+				},
+				{
+				    "path" : "idle/index",
+				    "style" : {
+						"navigationBarTitleText" : "闲置"
+					}
+				},
+				{
+				    "path" : "post-details/post-image",
+				    "style" : {
+				    	"navigationBarTitleText" : "",
+						"navigationBarBackgroundColor": "#000000",
+						"navigationBarTextStyle": "white"
+				    }
+				},
+				{
+				    "path" : "post-details/header-image",
+				    "style" : {
+						"app-plus": {
+						    "titleNView": false
+						}
+				    }
+				},
+				{
+				    "path" : "post-details/post-recommend-more",
+				    "style" : {
+						"navigationBarTitleText" : "推荐",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "report/index",
+				    "style" : {
+						"navigationBarTitleText" : "举报",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "report/report-submit",
+				    "style" : {
+						"navigationBarTitleText" : "举报详情",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "post-details/post-thumbsup-list",
+				    "style" : {
+						"navigationBarTitleText" : "点赞列表"
+					}
+				},
+				{
+				    "path" : "post-details/post-comment-list",
+				    "style" : {
+						"navigationBarTitleText" : "评论列表"
+					}
+				},
+				{
+				    "path" : "post-details/post-reply-list",
+				    "style" : {
+						"navigationBarTitleText" : "回复列表"
+					}
+				},
+				{
+				    "path" : "article/article-tag-list",
+				    "style" : {
+						"navigationBarTitleText" : "类型"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/mine",
+			"pages": [
+				{
+				    "path" : "mine-appointment/mine-foster/index",
+				    "style" : {
+						"navigationBarTitleText" : "寄养订单"
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-foster/foster-record-details",
+				    "style" : {
+						"navigationBarTitleText" : "寄养订单详情"
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-foster/add-comment",
+				    "style" : {
+						"navigationBarTitleText" : "评价",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"发布",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"28upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-foster/index",
+				    "style" : {
+						"navigationBarTitleText" : "寄养订单",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"我的寄养",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"28upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-foster/service-foster-placeList",
+				    "style" : {
+						"navigationBarTitleText" : "寄养服务"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-foster/service-foster",
+				    "style" : {
+						"navigationBarTitleText" : "寄养服务"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-foster/service-foster-record-details",
+				    "style" : {
+						"navigationBarTitleText" : "订单详情"
+					}
+				},
+				{
+				    "path" : "agree/index",
+				    "style" : {
+						"navigationBarTitleText" : ""
+					}
+				},
+				{
+				    "path" : "agree/index-app",
+				    "style" : {
+						"navigationBarTitleText" : "",
+						"app-plus":{
+							"titleNView":false
+						}
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-adopt/index",
+				    "style" : {
+						"navigationBarTitleText" : "领养订单"
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-adopt/adopt-record-details",
+				    "style" : {
+						"navigationBarTitleText" : "领养订单详情"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-adopt/index",
+				    "style" : {
+						"navigationBarTitleText" : "送养订单",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"我的送养",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"28upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-adopt/service-adopt-placeList",
+				    "style" : {
+						"navigationBarTitleText" : "送养服务"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-adopt/service-adopt",
+				    "style" : {
+						"navigationBarTitleText" : "送养服务"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-adopt/service-adopt-record-details",
+				    "style" : {
+						"navigationBarTitleText" : "送养订单详情"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-adopt/service-adopt-questionnaire",
+				    "style" : {
+						"navigationBarTitleText" : "问卷"
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-pair/index",
+				    "style" : {
+						"navigationBarTitleText" : "配对订单"
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-pair/pair-record-details",
+				    "style" : {
+						"navigationBarTitleText" : "配对订单详情"
+					}
+				},
+				{
+				    "path" : "mine-appointment/mine-pair/add-comment",
+				    "style" : {
+						"navigationBarTitleText" : "评价",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"发布",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"28upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-pair/index",
+				    "style" : {
+						"navigationBarTitleText" : "配对订单",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"我的配对",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"28upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-pair/service-pair-placeList",
+				    "style" : {
+						"navigationBarTitleText" : "配对服务"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-pair/service-pair",
+				    "style" : {
+						"navigationBarTitleText" : "配对服务"
+					}
+				},
+				{
+				    "path" : "mine-service/mine-service-pair/service-pair-record-details",
+				    "style" : {
+						"navigationBarTitleText" : "配对订单详情"
+					}
+				},
+				{
+				    "path" : "applay-service",
+				    "style" : {
+				    	"navigationBarTitleText" : "申请"
+				    }
+				},
+				{
+				    "path" : "growth/index",
+				    "style" : {
+				    	"navigationBarTitleText" : "经验值"
+				    }
+				},
+				{
+				    "path" : "growth/growth-value-list",
+				    "style" : {
+				    	"navigationBarTitleText" : "经验值明细"
+				    }
+				},
+				{
+				    "path" : "info/index",
+				    "style" : {
+						"navigationBarTitleText" : "个人资料",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "info/info-details",
+					"style" : {
+						"navigationBarTitleText" : "详细信息"
+					}
+				},
+				{
+				    "path" : "info/info-address",
+				    "style" : {
+						"navigationBarTitleText" : "住址",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "info/info-profile",
+				    "style" : {
+						"navigationBarTitleText" : "个人简介",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "info/certification",
+				    "style" : {
+						"navigationBarTitleText" : "认证信息",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "msg/msg-thumbsup",
+				    "style" : {
+						"navigationBarTitleText" : "收到的赞",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"全部已读",
+										"float":"right",
+										"fontSize":"24upx",
+										"right":"20upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "msg/msg-favorite",
+				    "style" : {
+						"navigationBarTitleText" : "收藏",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"全部已读",
+										"float":"right",
+										"fontSize":"24upx",
+										"right":"20upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "msg/msg-comment",
+				    "style" : {
+						"navigationBarTitleText" : "收到的评论",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"全部已读",
+										"float":"right",
+										"fontSize":"24upx",
+										"right":"20upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "msg/msg-notification",
+				    "style" : {
+						"navigationBarTitleText" : "系统公告",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "msg/msg-pet-plan",
+				    "style" : {
+						"navigationBarTitleText" : "宠物计划",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "msg/msg-officia",
+				    "style" : {
+						"navigationBarTitleText" : "官方消息"
+					}
+				},
+				{
+				    "path" : "login/login",
+				    "style" : {
+						"navigationBarTitleText" : "验证码登录",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"type": "transparent"
+							}
+						}
+					}
+				},
+				//密码登录
+				{
+				    "path" : "login/account-login",
+				    "style" : {
+						"navigationBarTitleText" : "",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"type": "transparent"
+							}
+						}
+					}
+				},
+				{
+				    "path" : "login/setPassword",
+				    "style" : {
+						"navigationBarTitleText" : "设置密码",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								"type": "transparent"
+							}
+						}
+					}
+				},
+				{
+				    "path" : "info/user-favorite-pet",
+				    "style" : {
+						"navigationBarTitleText" : "喜欢的宠物",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none",
+							"titleNView": {
+								// "autoBackButton":"false",
+								"buttons": [ //原生标题栏按钮配置
+									{
+										"type":"none",
+										"text":"\ue652",
+										"fontSrc": "/static/iconfont.ttf",
+										"float":"right",
+										"fontSize":"40upx"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+				    "path" : "info/user-favorite-pet-select",
+				    "style" : {
+						"navigationBarTitleText" : "喜欢的宠物",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "pet/pet-list",
+				    "style" : {
+						"navigationBarTitleText" : "我的爱宠"
+					}
+				},
+				{
+				    "path" : "pet/pet-add",
+				    "style" : {
+						"navigationBarTitleText" : "添加宠物",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "pet/pet-breed-select",
+				    "style" : {
+						"navigationBarTitleText" : "宠物种类",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "pet/index",
+				    "style" : {
+						"navigationBarTitleText" : "宠物档案",
+						"app-plus": {
+							"titleNView": {
+							    "type": "transparent"
+							}
+						}
+					}
+				},
+				{
+				    "path" : "pet/pet-info-edit",
+				    "style" : {
+						"navigationBarTitleText" : "编辑宠物",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "pet/pet-info-remark-edit",
+				    "style" : {
+						"navigationBarTitleText" : "备注",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "pet/pet-info-remark-add",
+				    "style" : {
+						"navigationBarTitleText" : "备注",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "plan/index",
+				    "style" : {
+						"navigationBarTitleText" : "宠物记录",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "plan/plan-timeline",
+				    "style" : {
+						"navigationBarTitleText" : "记录"
+					}
+				},
+				{
+				    "path" : "plan/plan-parasite-timeline",
+				    "style" : {
+						"navigationBarTitleText" : "记录"
+					}
+				},
+				{
+				    "path" : "plan/plan-edit",
+				    "style" : {
+						"navigationBarTitleText" : "",//洗澡,美容，体检  通用
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "plan/plan-parasite-edit",
+				    "style" : {
+						"navigationBarTitleText" : "驱虫(外)",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "plan/plan-vaccine-edit",
+				    "style" : {
+						"navigationBarTitleText" : "疫苗",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "setting/index",
+				    "style" : {
+						"navigationBarTitleText" : "设置"
+					}
+				},
+				{
+				    "path" : "setting/tip",
+				    "style" : {
+						"navigationBarTitleText" : "小技巧"
+					}
+				},
+				{
+				    "path" : "setting/feedback",
+				    "style" : {
+						"navigationBarTitleText" : "问题反馈"
+					}
+				},
+				{
+				    "path" : "setting/agreement",
+				    "style" : {
+						"navigationBarTitleText" : "协议"
+					}
+				},
+				{
+				    "path" : "setting/download",
+				    "style" : {
+						"navigationBarTitleText" : "客户端下载"
+					}
+				},
+				{
+				    "path" : "setting/about",
+				    "style" : {
+						"navigationBarTitleText" : "关于我们"
+					}
+				},
+				{
+				    "path" : "more/care-list",
+				    "style" : {
+						"navigationBarTitleText" : "关注",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/favorite-list",
+				    "style" : {
+						"navigationBarTitleText" : "收藏",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/comment-list",
+				    "style" : {
+						"navigationBarTitleText" : "评论",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/comment-list-comment-details",
+				    "style" : {
+						"navigationBarTitleText" : "评论详情",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/comment-list-reply-details",
+				    "style" : {
+						"navigationBarTitleText" : "回复详情",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/thumbsup-list",
+				    "style" : {
+						"navigationBarTitleText" : "点赞",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/service-list",
+				    "style" : {
+						"navigationBarTitleText" : "服务",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/group-list",
+				    "style" : {
+						"navigationBarTitleText" : "小组",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "more/topic-list",
+				    "style" : {
+						"navigationBarTitleText" : "话题",
+						"app-plus": {
+							"navigationBarTextStyle": "white",
+							"bounce": "none"
+						}
+					}
+				},
+				{
+				    "path" : "follow-list",
+				    "style" : {
+						"navigationBarTitleText" : "关注列表",
+						"enablePullDownRefresh":true,
+						"app-plus": {
+							"titleView": false,
+							"pullToRefresh":{ //下拉样式配置
+								"color": "#888888",    
+								"style":"default"
+							}
+						}
+					}
+				},
+				{
+				    "path" : "fans-list",
+				    "style" : {
+						"navigationBarTitleText" : "粉丝列表"
+					}
+				}
+			]
+		}
+	],
+	
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#f8f8f8",
+		"navigationStyle":"default"
+	},
+	"tabBar" : {
+	    "color" : "#b7b7b7",
+	    "selectedColor" : "#121212",
+	    "borderStyle" : "black",
+	    "backgroundColor" : "#ffffff",
+	    "list" : [
+	        {
+	            "pagePath" : "pages/tab-index/index",
+	            "iconPath" : "static/tab-home.png",
+	            "selectedIconPath" : "static/tab-home-current.png",
+	            "text" : "首页"
+	        },
+			{
+			    "pagePath" : "pages/tab-discover/index",
+			    "iconPath" : "static/tab-faxian.png",
+			    "selectedIconPath" : "static/tab-faxian-current.png",
+			    "text" : "发现"
+			},
+			// {
+			//     "pagePath" : "pages/tab-service/index",
+			//     "iconPath" : "static/tab-fuwu.png",
+			//     "selectedIconPath" : "static/tab-fuwu-current.png",
+			//     "text" : "服务"
+			// },
+			{
+			    "pagePath" : "pages/tab-msg/index",
+			    "iconPath" : "static/tab-msg.png",
+			    "selectedIconPath" : "static/tab-msg-current.png",
+			    "text" : "消息"
+			},
+			{
+			    "pagePath" : "pages/tab-mine/index",
+			    "iconPath" : "static/tab-center.png",
+			    "selectedIconPath" : "static/tab-center-current.png",
+			    "text" : "我的"
+			}
+	    ]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

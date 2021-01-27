@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            <%= htmlWebpackPlugin.options.title %>
+        </title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px'
+            })
+            var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />');
+			(function(a, b, c, d, e, j, s) {
+			    a[d] = a[d] || function() {
+			        (a[d].a = a[d].a || []).push(arguments)
+			    };
+			    j = b.createElement(c),
+			        s = b.getElementsByTagName(c)[0];
+			    j.async = true;
+			    j.charset = 'UTF-8';
+			    j.src = 'https://static.meiqia.com/widget/loader.js';
+			    s.parentNode.insertBefore(j, s);
+			})(window, document, 'script', '_MEIQIA');
+			_MEIQIA('entId', 246219);
+			_MEIQIA('withoutBtn');
+		</script>
+		
+		<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.3/skins/default/aliplayer-min.css" />
+	    <script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.9.3/aliplayer-min.js"></script>
+		    
+		<!-- <script src="https://g.alicdn.com/jssdk/u-link/index.min.js"></script> -->
+		<script type="text/javascript" src="/static/u-link/index.js"></script>
+        <link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
+		<link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?c6519783b219fc0bed6dc4fa49f7e96f";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+    </head>
+	
+    <body>
+        <noscript>
+            <strong>Please enable JavaScript to continue.</strong>
+        </noscript>
+        <div id="app"></div>
+		<!-- <iframe id="app" src="index.html" scrolling="no"></iframe> -->
+        <!-- built files will be auto injected -->
+    </body>
+
+</html>
